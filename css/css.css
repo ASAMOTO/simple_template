@@ -86,11 +86,13 @@ nav{
 }
 nav ul{
 	width: 60%;	/*横幅の指定*/
-	margin-left: 20%;	/*左端から20%右側に動かす*/
+	margin: auto;	/*中央に配置する*/
+	list-style: none; /*リストのスタイルを削除*/
 }
 nav li{
-	width: calc(25% - 2px);	/*横幅の指定（線の分をマイナスする）*/
+	width: calc(100% / 4);	/*横幅の指定*/
 	border-left: 1px solid orange;	/*線を描く*/
+	box-sizing: border-box; /*線の幅をliの横幅に含める*/
 	text-align: center;	/*文字を中央に*/
 	float: left;	/*左から並べる*/
 }
@@ -115,22 +117,24 @@ nav a:hover{
 }
 
 /*****ARTICLE*****/
-article{
+section{
 	display: block;
 	width: 60%;
-	margin-left: 20%;
-	margin-bottom: 20px;
+	margin: 20px auto; /*上下20px 左右中央*/
 	overflow: hidden;
 }
-section{
-	width: 41%;	/*横幅の指定*/
+article{
+	width: calc(50% - 15px);	/*横幅の指定*/
 	padding: 2.5%;	/*余白の指定*/
-	margin: 1.5%;
+	margin-bottom: 30px;
 	background-color: #f9f9f9;	/*背景色の指定*/
 	overflow: hidden;	/*おまじない*/
 	float: left;	/*フロートする*/
 }
-section .date{
+article:nth-child(2n){
+	margin-left: 30px; /*2の倍数の記事は左側に余白を30px*/
+}
+article .date{
 	font-size: 60%;	/*文字サイズの指定*/
 	color: orange;	/*文字色の指定*/
 	border: 1px solid orange;	/*線を描く*/
@@ -141,7 +145,7 @@ section .date{
 	letter-spacing: 5px;	/*文字と文字の間隔をあける*/
 	float: left;	/*フロートする*/
 }
-section h1{
+article h1{
 	width: 100%;	/*横幅の指定*/
 	font-size: 150%;	/*フォントサイズの指定*/
 	color: #313131;	/*文字色の変更*/
@@ -152,7 +156,7 @@ section h1{
 	margin-bottom: 15px;	/*セクションタイトルの下に余白をつくる*/
 	float: left;	/*フロートする*/
 }
-section p{
+article p{
 	font-size: 100%;	/*フォントサイズの指定*/
 	color: #313131;	/*文字色の変更*/
 	letter-spacing: 3px;	/*文字と文字の間隔をあける*/
@@ -160,7 +164,7 @@ section p{
 	margin-bottom: 10px;	/*文字とボタンの間をあける*/
 	float: left;	/*フロートする*/
 }
-section .btn{
+article .btn{
 	color: #fff;	/*文字色の変更*/
 	border: 1px solid orange;	/*線を描く（ホバー時のずれを防ぐため）*/
 	background-color: orange;	/*背景色の指定*/
@@ -174,7 +178,7 @@ section .btn{
 	overflow: hidden;	/*おまじない*/
 	float: right;	/*フロートする*/
 }
-section .btn:hover{
+article .btn:hover{
 	background-color: #fff;	/*背景色の指定*/
 	border: 1px solid orange;	/*線を描く*/
 	-webkit-transition: all 0.5s;
@@ -195,4 +199,5 @@ footer{
 footer address{
 	color: #fff;	/*文字色の指定*/
 	letter-spacing: 5px;	/*文字と文字の間隔をあける*/
+	font-style: normal; /*文字の斜体を取り消す*/
 }
